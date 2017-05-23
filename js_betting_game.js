@@ -61,7 +61,16 @@ function genRandNumber(input, server_seed) {
 
 function gameStart() {
 
-  var input = $('#clientSeed').val();
+  var input = null;
+  if($('#clientSeed').val() === ""){
+    input = makeRandomText();
+    $('#clientSeed').val(input); 
+  }
+  else{
+    input = $('#clientSeed').val();
+  }
+  console.log(input);
+  
   var server_seed = "293d5d2ddd365f547b26401232b1b31e65c14c999f04";
 
   game.getBetAmount();
@@ -150,7 +159,19 @@ function gameStart() {
   };
 };
 
-        // switch game.randNumber;
+
+function makeRandomText()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 9; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+      // switch game.randNumber;
 
     //   case (game.numberGuess === game.randNumber);
     //     break;
