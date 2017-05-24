@@ -32,7 +32,7 @@
     <input id="guessForTwoB" name="guessForTwo" type="text" placeholder="Guess for two numbers (B)...(number 1..6)" />
       <br>
     <p>
-      The hashed server key of this game is:
+      (1) The hashed server key of this game is:
     </p>
     <p id="hashed_this_game">
       <?php
@@ -50,11 +50,15 @@
     <input id="clientSeed" name="clientSeed" type="text" placeholder="input text for client key" />
       <br>
       <br>
-    <div id="unhashed_last_game">
+    <div>(2) The unhashed server key of this game is </div>
+    <p id="unhashed_this_game">
       <?php
-        echo "unhashed server key of last game = " . $text;
+      echo $text;
       ?>
-    </div>
+    </p>
+      <br>
+    <div id="hashed_last_game">(3) The hashed server key of last game is:</div>
+    <div id="unhashed_last_game">(4) The unhashed server key of last game is:</div>
       <br>
     <div>
       <p>you can verify the server key at these website:

@@ -71,7 +71,8 @@ function gameStart() {
   }
   console.log(input);
   
-  var server_seed = "293d5d2ddd365f547b26401232b1b31e65c14c999f04";
+  var server_seed = $("#unhashed_this_game").text();
+  console.log("server seed:" + server_seed );
 
   game.getBetAmount();
   game.getRandomNumber(input, server_seed);
@@ -154,6 +155,11 @@ function gameStart() {
       update_bank();
     };
 
+    //changing content of hashed server key of last game
+    $("#hashed_last_game").append("<p>" + $("#hashed_this_game").text() + "</p>" );
+    //changing content of unhashed server key of last game
+    $("#unhashed_last_game").append("<p>" + $("#unhashed_this_game").text() + "</p>" );
+
 
 
   };
@@ -165,8 +171,9 @@ function makeRandomText()
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for( var i=0; i < 9; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    for( var i=0; i < 9; i++ ) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
 
     return text;
 }
