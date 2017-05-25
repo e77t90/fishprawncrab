@@ -32,10 +32,11 @@
     <input id="guessForTwoB" name="guessForTwo" type="text" placeholder="Guess for two numbers (B)...(number 1..6)" />
       <br>
     <p>
-      (1) The hashed server key of this game is:
+      The hashed server key of <strong>this game</strong> is:
     </p>
     <p id="hashed_this_game">
       <?php
+      /*
         $text = "";
         $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -43,28 +44,28 @@
           $text = $text . $possible[rand(0,strlen($possible)-1)];
           //$text += $possible.charAt(Math.floor(Math.random() * strlen($possible)));
         }
-        echo hash('sha512', $text); 
+        echo hash('sha512', $text);
+      */ 
       ?>
     </p>
     <label for="clientSeed">Input for client key: </label>
     <input id="clientSeed" name="clientSeed" type="text" placeholder="input text for client key" />
       <br>
       <br>
-    <div>(2) The unhashed server key of this game is </div>
-    <p id="unhashed_this_game">
-      <?php
-      echo $text;
-      ?>
-    </p>
+    <div class="hidden">(2) The unhashed server key of <strong>this game</strong> is
+      <p id="unhashed_this_game"></p>
+    </div>
       <br>
-    <div id="hashed_last_game">(3) The hashed server key of last game is:</div>
-    <div id="unhashed_last_game">(4) The unhashed server key of last game is:</div>
+    <div>The hashed server key of <strong>last game</strong> is:</div><p id="hashed_last_game"></p>
+    <div>The unhashed server key of <strong>last game</strong> is:</div><p id="unhashed_last_game"></p>
+      <br>
+    <div id="ajax"></div>
       <br>
     <div>
       <p>you can verify the server key at these website:
       </p>
       <ul>
-        <li> <a href="http://www.freeformatter.com/hmac-generator.html#ad-output" target="_blank">http://www.freeformatter.com/hmac-generator.html#ad-output</a> </li>
+        <li> <a href="https://www.freeformatter.com/sha512-generator.html#ad-output" target="_blank">https://www.freeformatter.com/sha512-generator.html#ad-output</a> </li>
         <li> <a href="https://caligatio.github.io/jsSHA" target="_blank">https://caligatio.github.io/jsSHA</a> </li>
         <li> <a href="https://https://1024tools.com/hmac" target="_blank">https://1024tools.com/hmac</a></li>
       </ul>

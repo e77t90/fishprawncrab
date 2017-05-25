@@ -1,5 +1,7 @@
 $(document).ready(function(){
+  requestServerKey();
   $('#submit').on('click', gameStart);
+  $('#submit').on('click', requestServerKey);
 });
 
 $(document).ready(function(){
@@ -156,14 +158,27 @@ function gameStart() {
     };
 
     //changing content of hashed server key of last game
-    $("#hashed_last_game").append("<p>" + $("#hashed_this_game").text() + "</p>" );
+    $("#hashed_last_game").text($("#hashed_this_game").text());
     //changing content of unhashed server key of last game
-    $("#unhashed_last_game").append("<p>" + $("#unhashed_this_game").text() + "</p>" );
+    $("#unhashed_last_game").text($("#unhashed_this_game").text());
 
 
 
   };
 };
+
+function requestServerKey() {
+  $.ajax({
+    url: 'receive.php',
+    type: 'POST',
+    data: {action: 0},
+    success: function(response) {
+      $('#hashed_this_game').text(response.substring(9,response.length));
+      $('#unhashed_this_game').text(response.substring(0,9));
+    },
+    dataType: "text"
+  }); 
+}
 
 
 function makeRandomText()
@@ -177,6 +192,7 @@ function makeRandomText()
 
     return text;
 }
+
 
       // switch game.randNumber;
 
