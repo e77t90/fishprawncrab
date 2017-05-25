@@ -18,18 +18,19 @@
   <h2> 魚蝦蟹 </h2>
 
   <h2>Cash Balance: $<span id="balance"></span></h2>
+  <h3>Rolling Results are: <p id="diceResult"></p></h3>
   <form>
     <label for="bet">Bet: </label>
-    <input id="bet" name="bet" type="text" placeholder="What's your wager?" />
+    <input id="bet" name="bet" type="text" placeholder="投注額 ($)" />
       <br>
     <label for="guess">Guess: </label>
-    <input id="guess" name="guess" type="text" placeholder="Guess...(number 1..6)" />
+    <input id="guess" name="guess" type="text" placeholder="(number 1..6)" />
       <br>
-    <label for="guessForTwo">Guess for two numbers (A): </label>
-    <input id="guessForTwoA" name="guessForTwo" type="text" placeholder="Guess for two numbers (A)...(number 1..6)" />
+    <label for="guessForTwo">Guess for first numbers: </label>
+    <input id="guessForTwoA" name="guessForTwo" type="text" placeholder="(number 1..6)" />
       <br>
-    <label for="guessForTwoB">Guess for two numbers (B): </label>
-    <input id="guessForTwoB" name="guessForTwo" type="text" placeholder="Guess for two numbers (B)...(number 1..6)" />
+    <label for="guessForTwoB">Guess for second number: </label>
+    <input id="guessForTwoB" name="guessForTwo" type="text" placeholder="(number 1..6)" />
       <br>
     <p>
       The hashed server key of <strong>this game</strong> is:
@@ -49,7 +50,7 @@
       ?>
     </p>
     <label for="clientSeed">Input for client key: </label>
-    <input id="clientSeed" name="clientSeed" type="text" placeholder="input text for client key" />
+    <input id="clientSeed" name="clientSeed" type="text" placeholder="input for generating result" />
       <br>
       <br>
     <div class="hidden">(2) The unhashed server key of <strong>this game</strong> is
@@ -58,9 +59,6 @@
       <br>
     <div>The hashed server key of <strong>last game</strong> is:</div><p id="hashed_last_game"></p>
     <div>The unhashed server key of <strong>last game</strong> is:</div><p id="unhashed_last_game"></p>
-      <br>
-    <div id="ajax"></div>
-      <br>
     <div>
       <p>you can verify the server key at these website:
       </p>
@@ -70,7 +68,7 @@
         <li> <a href="https://https://1024tools.com/hmac" target="_blank">https://1024tools.com/hmac</a></li>
       </ul>
     </div>
-    <input type="button" id="submit" name="submit" value="Submit"/>
+    <input type="button" id="submit" name="submit" value="下注"/>
   </form>
 
   <script type="text/javascript" src="cryptojs/rollups/hmac-sha512.js"></script>

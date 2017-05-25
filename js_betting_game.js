@@ -82,6 +82,7 @@ function gameStart() {
   game.getNumberGuessForTwo();
 
   console.log("randNum:" + game.randNumber + " | guess: " + game.numberGuess + " | guess for two: " + game.numberGuessForTwo);
+  $('#diceResult').text(game.randNumber.toString());
 
   if(game.bet > game.bank) {
     alert("Bet amount cannot be larger than your bank!")
