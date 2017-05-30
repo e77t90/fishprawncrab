@@ -195,6 +195,66 @@ function makeRandomText()
 }
 
 
+
+// button object
+function Button(xL, xR, yT, yB) {
+  this.xLeft = xL;
+  this.xRight = xR;
+  this.yTop = yT;
+  this.yBottom = yB;
+}
+
+//Create the play button
+var btnPlay = new Button();
+
+
+
+
+// mouse coordinate of the screen
+var mouseX = 0;
+var mouseY = 0;
+
+function playGame() {
+  $('#submit').on('click', gameStart);
+  $('#submit').on('click', requestServerKey);
+}
+
+function init() {
+  document.addEventListener('click', mouseClicked, false);
+}
+
+//event functions
+function mouseClicked(e) {
+  mouseX = e.pageX - canvasBg.offsetLeft;
+  mouseY = e.pageY - canvasBg.offsetTop;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       // switch game.randNumber;
 
     //   case (game.numberGuess === game.randNumber);
